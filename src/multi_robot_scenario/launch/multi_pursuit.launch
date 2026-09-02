@@ -1,0 +1,31 @@
+<launch>
+  <arg name="rviz" default="true" />
+  <arg name="path_dir" default="$(find multi_robot_scenario)/paths" />
+
+  <!-- Gazebo odometry is calculated from the world pose, so all three odom
+       frames have the same origin.  Connect them to one RViz fixed frame. -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_robot_1_odom"
+        args="0 0 0 0 0 0 world robot_1/odom" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_robot_2_odom"
+        args="0 0 0 0 0 0 world robot_2/odom" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_robot_3_odom"
+        args="0 0 0 0 0 0 world robot_3/odom" />
+
+  <!-- 立即启动 tracker_1 -->
+  <node pkg="multi_robot_scenario" type="chungenzong4.py" name="tracker_1" output="screen"
+        args="robot_1 $(arg path_dir)/zzrobot1.csv" />
+
+  <!-- Robot 2 -->
+  <node pkg="multi_robot_scenario" type="chungenzong4.py" name="tracker_2" output="screen"
+        launch-prefix="bash -c 'sleep 0.5; exec $0 $@'" 
+        args="robot_2 $(arg path_dir)/zzrobot2.csv" />
+
+  <!-- Robot 3 -->
+  <node pkg="multi_robot_scenario" type="chungenzong4.py" name="tracker_3" output="screen"
+        launch-prefix="bash -c 'sleep 0.5; exec $0 $@'" 
+        args="robot_3 $(arg path_dir)/zzrobot3.csv" />
+
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="multi_robot_rviz"
+        args="-d $(find multi_robot_scenario)/launch/multi_pursuit.rviz"
+        output="screen" />
+</launch>

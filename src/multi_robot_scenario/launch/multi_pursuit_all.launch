@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- One-command entry point: Gazebo world + three robots + controllers + RViz. -->
+  <arg name="gazebo_gui" default="true" />
+  <arg name="rviz" default="true" />
+  <arg name="paused" default="false" />
+  <arg name="path_dir" default="$(find multi_robot_scenario)/paths" />
+
+  <include file="$(find multi_robot_scenario)/launch/TD3_kongbai.launch">
+    <arg name="paused" value="$(arg paused)" />
+    <arg name="gui" value="$(arg gazebo_gui)" />
+    <arg name="headless" value="false" />
+  </include>
+
+  <include file="$(find multi_robot_scenario)/launch/duoche.launch" />
+
+  <include file="$(find multi_robot_scenario)/launch/multi_pursuit.launch">
+    <arg name="rviz" value="$(arg rviz)" />
+    <arg name="path_dir" value="$(arg path_dir)" />
+  </include>
+</launch>

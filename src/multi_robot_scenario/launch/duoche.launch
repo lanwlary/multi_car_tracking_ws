@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Robot 1 -->
+  <group ns="robot_1">
+    <arg name="robot_name_1" default="robot_1" />
+    <arg name="robot_position_1" default="-x 0 -y 1 -z 0.01" />
+
+    <param name="robot_description" command="$(find xacro)/xacro '$(find multi_robot_scenario)/xacro/p3dx/pioneer3dx.xacro'" />
+    <!-- Gazebo plugins resolve tf_prefix from the robot namespace. -->
+    <param name="tf_prefix" type="string" value="robot_1" />
+
+    <node name="urdf_spawner_robot1" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model $(arg robot_name_1) -param robot_description $(arg robot_position_1)" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher_robot1">
+      <param name="publish_frequency" type="double" value="30.0"/>
+      <param name="tf_prefix" type="string" value="robot_1" />
+    </node>
+
+  </group>
+
+  <!-- Robot 2 -->
+  <group ns="robot_2">
+    <arg name="robot_name_2" default="robot_2" />
+    <arg name="robot_position_2" default="-x 0 -y 3.8 -z 0.01" />
+
+    <param name="robot_description" command="$(find xacro)/xacro '$(find multi_robot_scenario)/xacro/p3dx/pioneer3dx.xacro'" />
+    <param name="tf_prefix" type="string" value="robot_2" />
+
+    <node name="urdf_spawner_robot2" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model $(arg robot_name_2) -param robot_description $(arg robot_position_2)" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher_robot2">
+      <param name="publish_frequency" type="double" value="30.0"/>
+      <param name="tf_prefix" type="string" value="robot_2" />
+    </node>
+
+  </group>
+
+  <!-- Robot 3 -->
+  <group ns="robot_3">
+    <arg name="robot_name_3" default="robot_3" />
+    <arg name="robot_position_3" default="-x 0 -y 5.2 -z 0.01" />
+
+    <param name="robot_description" command="$(find xacro)/xacro '$(find multi_robot_scenario)/xacro/p3dx/pioneer3dx.xacro'" />
+    <param name="tf_prefix" type="string" value="robot_3" />
+
+    <node name="urdf_spawner_robot3" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model $(arg robot_name_3) -param robot_description $(arg robot_position_3)" />
+
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher_robot3">
+      <param name="publish_frequency" type="double" value="30.0"/>
+      <param name="tf_prefix" type="string" value="robot_3" />
+    </node>
+
+  </group>
+  
+
+</launch>

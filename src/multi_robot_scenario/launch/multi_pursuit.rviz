@@ -1,0 +1,161 @@
+Panels:
+  - Class: rviz/Displays
+    Name: Displays
+  - Class: rviz/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.45
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Name: Grid
+      Plane: XY
+      Plane Cell Count: 20
+      Reference Frame: world
+      Value: true
+    - Class: rviz/RobotModel
+      Enabled: true
+      Name: Robot 1
+      Robot Description: /robot_1/robot_description
+      TF Prefix: robot_1
+      Visual Enabled: true
+      Collision Enabled: false
+      Value: true
+    - Class: rviz/RobotModel
+      Enabled: true
+      Name: Robot 2
+      Robot Description: /robot_2/robot_description
+      TF Prefix: robot_2
+      Visual Enabled: true
+      Collision Enabled: false
+      Value: true
+    - Class: rviz/RobotModel
+      Enabled: true
+      Name: Robot 3
+      Robot Description: /robot_3/robot_description
+      TF Prefix: robot_3
+      Visual Enabled: true
+      Collision Enabled: false
+      Value: true
+    - Class: rviz/Path
+      Color: 255; 70; 70
+      Enabled: true
+      Head Diameter: 0.3
+      Head Length: 0.2
+      Length: 0.3
+      Line Style: Lines
+      Line Width: 0.04
+      Name: Robot 1 - Planned
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.03
+      Pose Style: None
+      Topic: /robot_1/planned_path
+      Value: true
+    - Class: rviz/Path
+      Color: 255; 170; 170
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.08
+      Name: Robot 1 - Actual
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.05
+      Pose Style: None
+      Topic: /robot_1/actual_path
+      Value: true
+    - Class: rviz/Path
+      Color: 70; 255; 70
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.04
+      Name: Robot 2 - Planned
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.03
+      Pose Style: None
+      Topic: /robot_2/planned_path
+      Value: true
+    - Class: rviz/Path
+      Color: 170; 255; 170
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.08
+      Name: Robot 2 - Actual
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.05
+      Pose Style: None
+      Topic: /robot_2/actual_path
+      Value: true
+    - Class: rviz/Path
+      Color: 70; 140; 255
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.04
+      Name: Robot 3 - Planned
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.03
+      Pose Style: None
+      Topic: /robot_3/planned_path
+      Value: true
+    - Class: rviz/Path
+      Color: 170; 210; 255
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.08
+      Name: Robot 3 - Actual
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.05
+      Pose Style: None
+      Topic: /robot_3/actual_path
+      Value: true
+    - Class: rviz/TF
+      Enabled: false
+      Frame Timeout: 15
+      Marker Scale: 0.35
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Value: false
+  Enabled: true
+  Global Options:
+    Background Color: 35; 35; 35
+    Default Light: true
+    Fixed Frame: world
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+  Value: true
+  Views:
+    Current:
+      Angle: 0
+      Class: rviz/TopDownOrtho
+      Name: Top Down
+      Near Clip Distance: 0.01
+      Scale: 70
+      Target Frame: world
+      X: 3
+      Y: 3
+Window Geometry:
+  Height: 900
+  Width: 1440
+  X: 80
+  Y: 50
